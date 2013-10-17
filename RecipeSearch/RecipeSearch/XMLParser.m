@@ -43,7 +43,7 @@
     if ([elementName isEqualToString:@"recipe"])
         recipe = [[Recipe alloc] init];
     
-    currentElementValue = nil;
+    
 }
 
 
@@ -55,6 +55,8 @@
     if ([elementName isEqualToString:@"recipe"]) {
         [recipes addObject:recipe];
         recipe = nil;
+        currentElementValue = nil;
+        return;
     }
     
     if ([elementName isEqualToString:@"label"])
@@ -68,6 +70,8 @@
 
     else if ([self isElementInPropertyList:elementName])
         [recipe setValue:currentElementValue forKey:elementName];
+    
+    currentElementValue = nil;
 }
 
 // store the element value to currentElementValue

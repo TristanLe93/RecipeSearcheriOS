@@ -17,7 +17,6 @@
     _ingre = [[NSMutableArray alloc] init];         // ingredients. 
     _methods = [[NSMutableArray alloc] init];
     _ingredientTags = [[NSMutableArray alloc] init];
-    //_nutrition = [[NSMutableArray alloc] init];
     
     return self;
 }

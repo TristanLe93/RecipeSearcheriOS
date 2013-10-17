@@ -22,6 +22,5 @@
 @property (nonatomic, retain) NSMutableArray * ingre;
 @property (nonatomic, retain) NSMutableArray * methods;
 @property (nonatomic, retain) NSMutableArray * ingredientTags;
-//@property (nonatomic, retain) NSMutableArray * nutrition;
 
 @end

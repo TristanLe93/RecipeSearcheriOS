@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>37F15BC6-2727-40D4-BB91-3D2A0B5A8B9A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RecipeSearch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>462085E2-8471-4921-AD01-AF41F550A626</key>
+		<string>https://github.com/TristanLe93/RecipeSearcheriOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RecipeSearch/RecipeSearch.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>462085E2-8471-4921-AD01-AF41F550A626</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TristanLe93/RecipeSearcheriOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>462085E2-8471-4921-AD01-AF41F550A626</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>462085E2-8471-4921-AD01-AF41F550A626</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RecipeSearcheriOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

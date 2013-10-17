@@ -15,10 +15,7 @@
 static NSString *fileName = @"10000recipes";
 static NSInteger count = 5;
 
-@interface TableViewController () {
-    NSInteger threadFinished;
-    NSDate *parseStart;
-}
+@interface TableViewController ()
 @end
 
 @implementation TableViewController
@@ -40,7 +37,7 @@ static NSInteger count = 5;
     [super viewDidLoad];
     
     recipes = [[NSMutableArray alloc] init];
-    parseStart = [NSDate date];
+    NSDate *parseStart = [NSDate date];
     
     NSURL *pathURL = [[NSBundle mainBundle] URLForResource:fileName withExtension:@"xml"];
     NSString *path = [pathURL path];
@@ -50,32 +47,24 @@ static NSInteger count = 5;
     for (int i = 1; i <= count; i++) {
         [self parseXml:data];
     }
+    
+    // display the total time taken
+    NSDate *parseEnd = [NSDate date];
+    NSTimeInterval totalParseTime = [parseEnd timeIntervalSinceDate:parseStart];
+    NSLog(@"Total Parse Time = %f", totalParseTime);
+    NSLog(@"Total Recipes: %lu", (unsigned long)recipes.count);
+    
+    [self.tableView reloadData];
 }
 
 // loads an xml file and parses it. Store the results in an array
 - (void)parseXml:(NSData *)data {
-    dispatch_queue_t parseQueue = dispatch_queue_create("Parser", nil);
+    NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:data];
+    XMLParser *parser = [[XMLParser alloc] initXMLParser];
+    [nsXmlParser setDelegate:parser];
+    [nsXmlParser parse];
     
-    dispatch_async(parseQueue, ^{
-        NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:data];
-        XMLParser *parser = [[XMLParser alloc] initXMLParser];
-        [nsXmlParser setDelegate:parser];
-        [nsXmlParser parse];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [recipes addObjectsFromArray:parser.recipes];
-            threadFinished++;
-            
-            if (threadFinished == count) {
-                NSDate *parseEnd = [NSDate date];
-                NSTimeInterval totalParseTime = [parseEnd timeIntervalSinceDate:parseStart];
-                NSLog(@"Total Parse Time = %f", totalParseTime);
-                NSLog(@"Total Recipes: %lu", (unsigned long)recipes.count);
-                
-                [self.tableView reloadData];
-            }
-        });
-    });
+    [recipes addObjectsFromArray:parser.recipes];
 }
 
 // Dispose of any resources that can be recreated.
